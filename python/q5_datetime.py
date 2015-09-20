@@ -1,20 +1,20 @@
 # Hint:  use Google to find python function
 
-import datetime
+from datetime import datetime
 
 ####a) 
 date_start = '01-02-2013'  
 date_stop = '07-28-2015'   
 
-py_date_start = datetime.datetime.strptime(date_start, "%m-%d-%Y")
-py_date_stop = datetime.datetime.strptime(date_stop, "%m-%d-%Y")
+py_date_start = datetime.strptime(date_start, "%m-%d-%Y")
+py_date_stop = datetime.strptime(date_stop, "%m-%d-%Y")
 
 print py_date_start
 print py_date_stop
 
-#date_delta = date_stop - date_start
+date_delta = (date_stop).days - (date_start).days
 
-#print date_delta
+print date_delta
 
 ####b)  
 date_start = '12312013'  
@@ -26,6 +26,10 @@ py_date_stop = datetime.datetime.strptime(date_stop, "%m%d%Y")
 print py_date_start
 print py_date_stop
 
+date_delta = (date_stop).days - (date_start).days
+
+print date_delta
+
 ####c)  
 date_start = '15-Jan-1994'  
 date_stop = '14-Jul-2015'  
@@ -35,3 +39,7 @@ py_date_stop = datetime.datetime.strptime(date_stop, "%d-%b-%Y")
 
 print py_date_start
 print py_date_stop
+
+date_delta = (date_stop).days - (date_start).days
+
+print date_delta
