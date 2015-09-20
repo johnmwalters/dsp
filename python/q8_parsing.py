@@ -6,39 +6,30 @@
 
 
 import csv
-"""
+
 def read_data(data):
 	with open(data) as csvfile:
 		reader = csv.DictReader(csvfile)
-		table = dict()
+		low_diff = 9999
+		club = ''
 		for row in reader:
 			print row['Team'], row['Games'], row['Wins'], row['Losses'], row['Draws'],row['Goals'], row['Goals Allowed'], row['Points']
-			#reader['Goal Difference'] = float(row['Goals']) - float(row['Goals Allowed'])
-			#print table[1]
-		#print table[1]
-		print reader['Team']
-			#row['Goal Difference'] = row['Goals'] - row['Goals Allowed']
-		#reader.get('Arsenal',1)
-"""
-"""
-def read_data(data):
-	with open(data) as f:
-		reader = csv.reader(f, firstrow = 2)
-		for row in reader:
-			print int(row[5]) - int(row[6])
-"""
-def read_data(data):
-	reader = csv.DictReader(open(data))
-	print reader['Arsenal']
-
+			goal_difference = int(row['Goals']) - int(row['Goals Allowed'])
+			abs_goal_difference = abs(int(row['Goals']) - int(row['Goals Allowed']))
+			print abs_goal_difference
+			if abs_goal_difference < low_diff:
+				club = row['Team']
+				print club
+				low_diff = abs_goal_difference
+			else:
+				low_diff = low_diff
+				print club
 # COMPLETE THIS FUNCTION
-
-football = read_data('football.csv')
-
-print football
 
 #def get_min_score_difference(self, parsed_data):
     # COMPLETE THIS FUNCTION
 
 #def get_team(self, index_value, parsed_data):
     # COMPLETE THIS FUNCTION
+
+read_data('football.csv')
